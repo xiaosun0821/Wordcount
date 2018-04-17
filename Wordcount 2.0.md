@@ -63,7 +63,7 @@ public class test2 extends JFrame implements ActionListener{
 			this.tongji();
 			}
         if(arg0.getActionCommand().equals("拓展功能")) {
-        	
+        	this.tuozhan();
 	}
 
  }
@@ -84,6 +84,7 @@ public class test2 extends JFrame implements ActionListener{
 				    &&paths[paths.length-2]=='x'&&paths[paths.length-3]=='t'
 				    &&paths[paths.length-4]=='.')
 	           {
+				int l=0;
 				int len=0;
 			    StringBuffer str=new StringBuffer("");
 			    File file=new File(path);
@@ -93,7 +94,10 @@ public class test2 extends JFrame implements ActionListener{
 			        BufferedReader in= new BufferedReader(isr);
 			        String line=null;
 			        while( (line=in.readLine())!=null )
-			        {
+			        {   
+			        	if(line.trim().length()==0) {
+			        		l++;
+			        	}	
 			        	if(len != 0) 
 // 处理换行符的问题
 			            {
@@ -113,18 +117,22 @@ public class test2 extends JFrame implements ActionListener{
 			        e.printStackTrace();
 			    }
 			    String s=str.toString();
-			    zifu=s.toCharArray();	
-			int zfs=0;//字符数
-			int dcs=0;//单词数
-			int jzs=0;//句子数
-			for(int i=0;i<zifu.length;i++) {
-				if(zifu[i]!=' ') {
-					zfs++;
-					}
-				if(zifu[i]!=' '&&i!=zifu.length-1&&zifu[i+1]==' ') {
+			    zifu=s.toCharArray();
+			    int zfs=0;//字符数
+				int dcs=0;//单词数
+				int jzs=0;//句子数
+				if(zifu[0]!=' '){
 					dcs++;
 				}
-				if(i==zifu.length-1&&zifu[i]!=' ') {
+			for(int i=0;i<zifu.length;i++) {
+				if(zifu[i]!=' '&&zifu[i]!='\n'&&zifu[i]!='\r') {
+					zfs++;
+					}
+				if(zifu[i]==' '&&i!=zifu.length-1&&zifu[i+1]!=' ') {
+					dcs++;
+				}
+		
+				if(zifu[i]=='\n') {
 					dcs++;
 				}
 				if(zifu[i]=='.'||zifu[i]=='!'||zifu[i]==';'||zifu[i]=='?') {
@@ -132,8 +140,7 @@ public class test2 extends JFrame implements ActionListener{
 					}
 				}
 			jt2.setText("字符数："+zfs);
-			jt3.setText("单词数："+dcs);
+			jt3.setText("单词数："+(dcs-l));
 			jt4.setText("句子数"+jzs);
 		}
 		}
-}
