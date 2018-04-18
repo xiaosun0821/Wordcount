@@ -11,25 +11,25 @@ public class test2 extends JFrame implements ActionListener{
 		// TODO Auto-generated method stub
 		test2 test_1=new test2();
 	}
-//æ„é€ å‡½æ•°
+//¹¹Ôìº¯Êı
     public test2() {
-//é…ç½®ç•Œé¢
-    	jp1=new JPanel();
+//ÅäÖÃ½çÃæ
+    	jp1=new JPanel();/l/
     	jp1.setLayout(new GridLayout(1,3));
     	jp2=new JPanel();
     	jp2.setLayout(new GridLayout(1,2));
     	jp3=new JPanel();
     	jp3.setLayout(new GridLayout(3,1));
-    	jb1=new JButton("æ‰“å¼€");
-    	jb2=new JButton("ç»Ÿè®¡");
-    	jb3=new JButton("æ‹“å±•åŠŸèƒ½");
+    	jb1=new JButton("´ò¿ª");
+    	jb2=new JButton("Í³¼Æ");
+    	jb3=new JButton("ÍØÕ¹¹¦ÄÜ");
        	jp1.add(jb1);
        	jp1.add(jb2);
     	jp1.add(jb3);
     	jt1=new JLabel();
-    	jt2=new JLabel("å­—ç¬¦æ•°ï¼š");
-    	jt3=new JLabel("å•è¯æ•°ï¼š");
-    	jt4=new JLabel("å¥å­æ•°ï¼š");
+    	jt2=new JLabel("×Ö·ûÊı£º");
+    	jt3=new JLabel("µ¥´ÊÊı£º");
+    	jt4=new JLabel("¾ä×ÓÊı£º");
     	jp3.add(jt2);
     	jp3.add(jt3);
     	jp3.add(jt4);
@@ -38,39 +38,39 @@ public class test2 extends JFrame implements ActionListener{
     	this.setLayout(new GridLayout(2,1));
     	this.add(jp2);
     	this.add(jp1);
-    	this.setTitle("ç»Ÿè®¡");
+    	this.setTitle("Í³¼Æ");
     	this.setSize(400,200);
     	this.setVisible(true);
     	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	jb1.addActionListener(this);
-    	jb1.setActionCommand("æ‰“å¼€");
+    	jb1.setActionCommand("´ò¿ª");
     	jb2.addActionListener(this);
-    	jb2.setActionCommand("ç»Ÿè®¡");
+    	jb2.setActionCommand("Í³¼Æ");
     	jb3.addActionListener(this);
-    	jb3.setActionCommand("æ‹“å±•åŠŸèƒ½");
+    	jb3.setActionCommand("ÍØÕ¹¹¦ÄÜ");
     }
     String path=null;
     char zifu[]=null;
     char paths[]=null;
-//æŒ‰ä¸‹æŒ‰é”®åçš„åé¦ˆ
+//°´ÏÂ°´¼üºóµÄ·´À¡
 //@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		if(arg0.getActionCommand().equals("æ‰“å¼€")) {
+		if(arg0.getActionCommand().equals("´ò¿ª")) {
 			this.open();
 		}
-        if(arg0.getActionCommand().equals("ç»Ÿè®¡")) {
+        if(arg0.getActionCommand().equals("Í³¼Æ")) {
 			this.tongji();
 			}
-        if(arg0.getActionCommand().equals("æ‹“å±•åŠŸèƒ½")) {
-        	this.tuozhan();
+        if(arg0.getActionCommand().equals("ÍØÕ¹¹¦ÄÜ")) {
+        	
 	}
 
  }
-//æ‰“å¼€å‡½æ•°
+//´ò¿ªº¯Êı
 		public void open(){
 			JFileChooser jfc=new JFileChooser();
-			jfc.setDialogTitle("è¯·é€‰æ‹©æ–‡ä»¶ã€‚ã€‚ã€‚");
+			jfc.setDialogTitle("ÇëÑ¡ÔñÎÄ¼ş¡£¡£¡£");
 			jfc.showOpenDialog(null);
 			jfc.setAcceptAllFileFilterUsed(false);
 			jfc.setVisible(true);
@@ -78,13 +78,12 @@ public class test2 extends JFrame implements ActionListener{
 		    paths=path.toCharArray();
 		    jt1.setText(path);
  }
-//ç»Ÿè®¡å‡½æ•°
+//Í³¼Æº¯Êı
 		public void tongji() {
 			if(path!=null&&paths[paths.length-1]=='t'
 				    &&paths[paths.length-2]=='x'&&paths[paths.length-3]=='t'
 				    &&paths[paths.length-4]=='.')
 	           {
-				int l=0;
 				int len=0;
 			    StringBuffer str=new StringBuffer("");
 			    File file=new File(path);
@@ -94,12 +93,9 @@ public class test2 extends JFrame implements ActionListener{
 			        BufferedReader in= new BufferedReader(isr);
 			        String line=null;
 			        while( (line=in.readLine())!=null )
-			        {   
-			        	if(line.trim().length()==0) {
-			        		l++;
-			        	}	
+			        {
 			        	if(len != 0) 
-// å¤„ç†æ¢è¡Œç¬¦çš„é—®é¢˜
+// ´¦Àí»»ĞĞ·ûµÄÎÊÌâ
 			            {
 			                str.append("\r\n"+line);
 			            }
@@ -117,77 +113,30 @@ public class test2 extends JFrame implements ActionListener{
 			        e.printStackTrace();
 			    }
 			    String s=str.toString();
-			    int zfs=0;//å­—ç¬¦æ•°
-				int dcs=0;//å•è¯æ•°
-				int jzs=0;//å¥å­æ•°
-			    zifu=s.toCharArray();
-				if(zifu.length==0) {
-					
-				}
-				else {
-			    if(zifu[0]!=' '){
-					dcs++;
-				}
+			    zifu=s.toCharArray();	
+			int zfs=0;
+//×Ö·ûÊı
+			int dcs=0;
+//µ¥´ÊÊı
+			int jzs=0;
+//¾ä×ÓÊı
 			for(int i=0;i<zifu.length;i++) {
-				if(zifu[i]!=' '&&zifu[i]!='\n'&&zifu[i]!='\r') {
+				if(zifu[i]!=' ') {
 					zfs++;
 					}
-				if(zifu[i]==' '&&i!=zifu.length-1&&zifu[i+1]!=' ') {
+				if(zifu[i]!=' '&&i!=zifu.length-1&&zifu[i+1]==' ') {
 					dcs++;
 				}
-		
-				if(zifu[i]=='\n') {
+				if(i==zifu.length-1&&zifu[i]!=' ') {
 					dcs++;
 				}
 				if(zifu[i]=='.'||zifu[i]=='!'||zifu[i]==';'||zifu[i]=='?') {
 					jzs++;
 					}
 				}
-			}
-			jt2.setText("å­—ç¬¦æ•°ï¼š"+zfs);
-			jt3.setText("å•è¯æ•°ï¼š"+(dcs-l));
-			jt4.setText("å¥å­æ•°"+jzs);
-		}
-				
-		}
-		//æ‹“å±•åŠŸèƒ½
-		public void tuozhan() {
-				if(path!=null&&paths[paths.length-1]=='t'
-					    &&paths[paths.length-2]=='x'&&paths[paths.length-3]=='t'
-					    &&paths[paths.length-4]=='.')
-		           {
-			int khs=0;//ç©ºè¡Œæ•°
-			int zsh=0;//æ³¨é‡Šè¡Œ
-			int dms=0;//ä»£ç æ•°
-			File f=new File(path);
-		    try {
-		        FileInputStream ise=new FileInputStream(f);
-		        InputStreamReader isre= new InputStreamReader(ise);
-		        BufferedReader ine= new BufferedReader(isre);
-		        String line=null;
-		        while( (line=ine.readLine())!=null )
-		        {
-		        	
-		        	if(line.contains("//")) {
-		        		zsh++;
-		        	}
-		        	if(line.trim().length()==0) {
-		        		khs++;
-		        	}
-		        	if(!line.contains("//")&&line.trim().length()!=0) {
-		        		dms++;
-		        	}
-		        }
-		        ine.close();
-		        isre.close();
-		        ise.close();
-		    } catch (IOException e) {
-		        // TODO Auto-generated catch block
-		        e.printStackTrace();
-		    }
-		    jt2.setText("ä»£ç æ•°ï¼š"+dms);
-			jt3.setText("ç©ºè¡Œæ•°ï¼š"+khs);
-			jt4.setText("æ³¨é‡Šè¡Œ"+zsh);    
+			jt2.setText("×Ö·ûÊı£º"+zfs);
+			jt3.setText("µ¥´ÊÊı£º"+dcs);
+			jt4.setText("¾ä×ÓÊı"+jzs);
 		}
 		}
 }
